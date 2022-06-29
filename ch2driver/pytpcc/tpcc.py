@@ -118,7 +118,7 @@ def loaderFunc(clientId, driverClass, scaleParameters, args, config, w_ids, load
     except KeyboardInterrupt:
         return -1
     except (Exception, AssertionError) as ex:
-        logging.warning("Failed to load data: %s" % (ex))
+        logging.debug("Client ID # %d failed to load data: %s" % (clientId, ex))
         traceback.print_exc(file=sys.stdout)
         raise
 
