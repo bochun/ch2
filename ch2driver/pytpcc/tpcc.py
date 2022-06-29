@@ -111,9 +111,13 @@ def loaderFunc(clientId, driverClass, scaleParameters, args, config, w_ids, load
 
     try:
         loadItems = (1 in w_ids)
+        logging.debug("Client ID # %d: Loader" % clientId)
         l = loader.Loader(driver, scaleParameters, w_ids, loadItems)
+        logging.debug("Client ID # %d: loadStart" % clientId)
         driver.loadStart()
+        logging.debug("Client ID # %d: execute" % clientId)
         l.execute()
+        logging.debug("Client ID # %d: loadFinish" % clientId)
         driver.loadFinish()
     except KeyboardInterrupt:
         return -1
